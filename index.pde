@@ -3,6 +3,16 @@ int goodY = 0;
  int enX = 400;
  int enY = 400;
 int score = 0;
+int prompt = 0;
+
+void reset()
+{
+  goodX = 0;
+  goodY = 0;
+  enX = 400;
+  enY = 400;
+  score = 0;
+}
 
 void drawCanvas()
 {
@@ -51,7 +61,13 @@ void keyPressed()
   background(200);
   drawCanvas();
   
-  
+  if(prompt == 1)
+  {
+     reset();
+     drawTiles();
+     prompt = 0;
+     return;
+   }
   
   if(keyCode == UP & goodY > 0)
   {
@@ -99,7 +115,8 @@ void keyPressed()
   if(dist(enX,enY,goodX,goodY) <= 100*sqrt(2))
   {
     text("Game over!", 20,20);
-    noLoop();
+    text("Press any key to continue.....",20,60);
+    prompt = 1;
   }
   text("Your score: " + str(score), 20,40);
   
