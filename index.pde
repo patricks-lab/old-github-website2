@@ -64,7 +64,7 @@ void keyPressed()
   if(prompt == 1)
   {
      reset();
-     drawTiles();
+     drawCanvas();
      prompt = 0;
      return;
    }
