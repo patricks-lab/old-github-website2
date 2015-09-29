@@ -26,6 +26,13 @@ void drawCanvas()
   }
 }
 
+void drawTiles()
+{
+    fill(0,255,0);
+    rect(0,0,100,100);
+    fill(255,0,0);
+    rect(400,400,100,100); 
+ }
 boolean canGo(int d)
 {
   /*
@@ -42,10 +49,7 @@ void setup()
   size(500,500);
   //noFill();
   drawCanvas();
-  fill(0,255,0);
-  rect(0,0,100,100);
-  fill(255,0,0);
-  rect(400,400,100,100);
+  drawTiles();
   textSize(20);
 }
 
@@ -64,7 +68,7 @@ void keyPressed()
   if(prompt == 1)
   {
      reset();
-     drawCanvas();
+     drawTiles();
      prompt = 0;
      return;
    }
