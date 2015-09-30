@@ -1,7 +1,7 @@
 int goodX = 0;
 int goodY = 0;
- int enX = 400;
- int enY = 400;
+ int enX = 300;
+ int enY = 300;
 int score = 0;
 int prompt = 0;
 
@@ -9,17 +9,17 @@ void reset()
 {
   goodX = 0;
   goodY = 0;
-  enX = 400;
-  enY = 400;
+  enX = 300;
+  enY = 300;
   score = 0;
 }
 
 void drawCanvas()
 {
   noFill();
-  for(int i = 0; i < 500; i+= 100)
+  for(int i = 0; i < 400; i+= 100)
   {
-     for(int j = 0; j < 500; j+= 100)
+     for(int j = 0; j < 400; j+= 100)
     {
       rect(i,j,100,100);
     }
@@ -31,7 +31,7 @@ void drawTiles()
     fill(0,255,0);
     rect(0,0,100,100);
     fill(255,0,0);
-    rect(400,400,100,100); 
+    rect(300,300,100,100); 
  }
 boolean canGo(int d)
 {
@@ -42,11 +42,11 @@ boolean canGo(int d)
   3. d == 2 (left) AND enX > 0
   4. d == 3 (right) AND enX < 300
   */
-  return ((d == 0 & enY > 0) || (d == 1 & enY < 400) || (d == 2 & enX > 0) || (d == 3 & enX < 400));
+  return ((d == 0 & enY > 0) || (d == 1 & enY < 300) || (d == 2 & enX > 0) || (d == 3 & enX < 300));
 }
 void setup()
 {
-  size(500,500);
+  size(400,400);
   //noFill();
   drawCanvas();
   drawTiles();
@@ -76,13 +76,13 @@ void keyPressed()
   if(keyCode == UP & goodY > 0)
   {
     goodY -=100;
-  } else if(keyCode == DOWN & goodY < 400)
+  } else if(keyCode == DOWN & goodY < 300)
   {
     goodY += 100;
   } else if(keyCode == LEFT & goodX > 0)
   {
     goodX -= 100;
-  } else if(keyCode == RIGHT & goodX <400)
+  } else if(keyCode == RIGHT & goodX <300)
   {
     goodX += 100;
   }
