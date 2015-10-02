@@ -1,17 +1,29 @@
 <!DOCTYPE html>
 <html>
+  
+<head>
+  <p>Select the size of the grid:</p>
+  <script src="processing.js"></script> 
+  <script> 
+    function selected(id)
+    {
+      var pjs = Processing.getInstanceById(id);
+      var x = document.getElementById("gSize").value;
+      pjs.setGrid(x);
+    }
+  </script>
+</head>
+
 <body>
 
-<p>Select the size of the grid:</p>
-
-<select id="gSize" name="gSize">
+<canvas id="sketch" data-processing-sources="index.pde"></canvas>
+<select id="gSize" name="gSize" onchange="selected('sketch')">
   <option value="400">400</option>
   <option value="300">300</option>
   <option value="500">500</option>
 </select>
 
-<script src="processing.js"></script> 
-<canvas data-processing-sources="index.pde"></canvas>
+
 
 </body>
 </html>
