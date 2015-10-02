@@ -6,7 +6,7 @@ int enX,enY;
 int score = 0;
 int prompt = 0;
 
-int gridSize = 400;
+int gridSize = 600;
 
 
 void setGrid(int size)
