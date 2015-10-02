@@ -12,6 +12,7 @@ int gridSize = 400;
 void setGrid(int size)
 {
    gridSize = size;
+   size(gridSize,gridSize);
 }
 
 void reset()
