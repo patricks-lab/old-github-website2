@@ -6,7 +6,7 @@ int enX,enY;
 int score = 0;
 int prompt = 0;
 
-int gridSize = 300;
+int gridSize;
 
 void reset()
 {
@@ -49,6 +49,10 @@ boolean canGo(int d)
 }
 void setup()
 {
+   //Get the size of my grid!
+   var e = document.getElementById("gSize");
+   gridSize = e.options[e.selectedIndex].value;
+   
   size(gridSize,gridSize);
   //noFill();
   drawCanvas();
@@ -75,13 +79,14 @@ void keyPressed()
      prompt = 0;
      return;
    }
-   
-   fill(128);
-   rect(gridSize/2,0,20,20);
-   rect(0,gridSize/2,20,20);
+  
+
+   //fill(128);
+   //rect(gridSize/2,0,20,20);
+   //rect(0,gridSize/2,20,20);
    //rect(250,250,20,20);
-   rect(gridSize/2,gridSize-20,20,20);
-   rect(gridSize-20,gridSize/2,20,20);
+   //rect(gridSize/2,gridSize-20,20,20);
+   //rect(gridSize-20,gridSize/2,20,20);
    
   
   if(keyCode == UP & goodY > 0)
