@@ -9,11 +9,7 @@ int prompt = 0;
 int gridSize = 600;
 
 
-void setGrid(int size)
-{
-   gridSize = size;
-   size(gridSize,gridSize);
-}
+
 
 void reset()
 {
@@ -22,6 +18,13 @@ void reset()
   enX = gridSize-100;
   enY = gridSize-100;
   score = 0;
+}
+
+void setGrid(int size)
+{
+   gridSize = size;
+   size(gridSize,gridSize);
+   reset();
 }
 
 void drawCanvas()
