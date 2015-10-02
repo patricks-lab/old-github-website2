@@ -1,25 +1,28 @@
 int goodX = 0;
 int goodY = 0;
- int enX = 300;
- int enY = 300;
+// int enX = 400;
+// int enY = 400;
+int enX,enY;
 int score = 0;
 int prompt = 0;
+
+int gridSize = 300;
 
 void reset()
 {
   goodX = 0;
   goodY = 0;
-  enX = 300;
-  enY = 300;
+  enX = gridSize-100;
+  enY = gridSize-100;
   score = 0;
 }
 
 void drawCanvas()
 {
   noFill();
-  for(int i = 0; i < 400; i+= 100)
+  for(int i = 0; i < gridSize; i+= 100)
   {
-     for(int j = 0; j < 400; j+= 100)
+     for(int j = 0; j < gridSize; j+= 100)
     {
       rect(i,j,100,100);
     }
@@ -31,7 +34,7 @@ void drawTiles()
     fill(0,255,0);
     rect(0,0,100,100);
     fill(255,0,0);
-    rect(300,300,100,100); 
+    rect(gridSize-100,gridSize-100,100,100); 
  }
 boolean canGo(int d)
 {
@@ -42,11 +45,11 @@ boolean canGo(int d)
   3. d == 2 (left) AND enX > 0
   4. d == 3 (right) AND enX < 300
   */
-  return ((d == 0 & enY > 0) || (d == 1 & enY < 300) || (d == 2 & enX > 0) || (d == 3 & enX < 300));
+  return ((d == 0 & enY > 0) || (d == 1 & enY < gridSize-100) || (d == 2 & enX > 0) || (d == 3 & enX < gridSize-100));
 }
 void setup()
 {
-  size(400,400);
+  size(gridSize,gridSize);
   //noFill();
   drawCanvas();
   drawTiles();
@@ -72,17 +75,25 @@ void keyPressed()
      prompt = 0;
      return;
    }
+   
+   fill(128);
+   rect(gridSize/2,0,20,20);
+   rect(0,gridSize/2,20,20);
+   //rect(250,250,20,20);
+   rect(gridSize/2,gridSize-20,20,20);
+   rect(gridSize-20,gridSize/2,20,20);
+   
   
   if(keyCode == UP & goodY > 0)
   {
     goodY -=100;
-  } else if(keyCode == DOWN & goodY < 300)
+  } else if(keyCode == DOWN & goodY < gridSize-100)
   {
     goodY += 100;
   } else if(keyCode == LEFT & goodX > 0)
   {
     goodX -= 100;
-  } else if(keyCode == RIGHT & goodX <300)
+  } else if(keyCode == RIGHT & goodX <gridSize-100)
   {
     goodX += 100;
   }
