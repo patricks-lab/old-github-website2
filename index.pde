@@ -8,6 +8,12 @@ int prompt = 0;
 
 int gridSize;
 
+
+void setGrid(int size)
+{
+   gridSize = size;
+}
+
 void reset()
 {
   goodX = 0;
@@ -50,8 +56,8 @@ boolean canGo(int d)
 void setup()
 {
    //Get the size of my grid!
-   var e = document.getElementById("gSize");
-   gridSize = e.options[e.selectedIndex].value;
+   //var e = document.getElementById("gSize");
+   //gridSize = e.options[e.selectedIndex].value;
    
   size(gridSize,gridSize);
   //noFill();
